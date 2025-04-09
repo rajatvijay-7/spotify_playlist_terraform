@@ -31,6 +31,41 @@ To interact with Spotify's API, you need a Client ID and Client Secret.
 4. Fill in the required details and create the app.
     Name -- My Playlist through Terraform
     Description -- Create multiple Spotify playlists using Terraform.
+    *Redirect URIs -- http://localhost:27228/spotify_callback
+5. Click on Settings and note down the Client ID and Client Secret.
 
+### 5. Enter Details
 
+Create a file named `.env` to store your Spotify application's Client ID and Secret
+
+SPOTIFY_CLIENT_ID=<your_spotify_client_id>
+SPOTIFY_CLIENT_SECRET=<your_spotify_client_secret>
+
+### 6. Run the Spotify Auth App and Get the API Key
+
+Make sure Docker Desktop is running, and start the authorization proxy server
+
+docker run --rm -it -p 27228:27228 --env-file .env ghcr.io/conradludgate/spotify-auth-proxy
+
+Open the Auth URL and complete the authorization.
+
+You should get “Authorization Successful” Message.
+
+### 8. Continue Creating Terraform Code
+
+### 9. Initialize and Apply Terraform Configuration
+
+1. Initialize the Terraform configuration:
+   terraform init
+2. Apply the Terraform configuration:
+   terraform apply
+
+### 11. Verify Playlists on Spotify
+
+After applying the Terraform configuration, log in to your Spotify account and verify that the playlists have been created and populated with the specified tracks.
+
+## Conclusion
+
+By following these steps, you can automate the creation and management of multiple Spotify playlists using Terraform. This approach not only saves time but also ensures consistency across your playlists. Customize the playlists and tracks as per your preference to suit different occasions.
+   
 
