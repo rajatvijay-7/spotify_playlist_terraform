@@ -5,6 +5,7 @@ resource "spotify_playlist" "Bollywood" {
 
 data "spotify_search_track" "AG_Playlist" {
   artist = "Amrinder Gill"
+  limit = 5
   
 }
 
